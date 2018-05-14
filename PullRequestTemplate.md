@@ -1,4 +1,4 @@
-```## Link to Ticket
+## Link to Ticket
 Closes # [Link]()
 
 ## Description of Proposed Changes
@@ -11,7 +11,8 @@ Outline the steps to test
 
 ```sh
 git fetch --all
-git checkout <feature_branch>```
+git checkout <feature_branch>
+```
 
 
 
