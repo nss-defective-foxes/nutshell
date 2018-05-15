@@ -35,7 +35,7 @@ const APIManager = Object.create(null, {
     },
     getSubsetMesssages: {
         value: function (id) {
-            return $.ajax(`http://localhost:8088/messages/?UserID=${id}`)
+            return $.ajax(`http://localhost:8088/messages/?userID=${id}`)
         }
     },
     putMessage: {
