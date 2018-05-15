@@ -117,7 +117,7 @@ const APIManager = Object.create(null, {
     },
     getSpecificTask: {
         value: function (id) {
-            return $.ajax(`http://localhost:8088/task/${id}`)
+            return $.ajax(`http://localhost:8088/tasks/${id}`)
         }
     },
     putTask: {
@@ -185,7 +185,7 @@ const APIManager = Object.create(null, {
     },
     getSpecificEvent: {
         value: function (id) {
-            return $.ajax(`http://localhost:8088/event/${id}`)
+            return $.ajax(`http://localhost:8088/events/${id}`)
         }
     },
     putEvent: {
