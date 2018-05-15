@@ -1,5 +1,14 @@
 const $ = require("jquery")
 
+
+
+const userid = {
+    id: 123,
+    taskName: "task master",
+
+}//will fetch id later
+
+const APIManager = require("api/APIManager.js")
 //Note: append to DOM in divs
 
 const taskMaker = function (name, date) {
@@ -7,8 +16,11 @@ const taskMaker = function (name, date) {
         "taskName": name,
         "dueDate": date
     }
-    return(newObject)
+    APIManager.postTask(newObject)
 }
+
+
+
 //input field for date
 //input field for name
 
@@ -28,6 +40,8 @@ nameInput.setAttribute("placeholder", "Enter Name")
 
 const submitButton = document.createElement("button")
 
+submitButton.textContent = "Submit"
+
 submitButton.addEventListener("click", taskMaker(nameInput.value, dateInput.value))
 
 taskForm.appendChild(dateInput)
@@ -36,26 +50,37 @@ taskForm.appendChild(nameInput)
 
 taskForm.appendChild(submitButton)
 
-$("body").append($("div")).id("taskList")
-
 $("#taskList").append(taskForm)
 
 //dislay tasks on the user task board
 
-const taskEditor = function ()
+const taskEditor = function (element) {
+    const editInput = document.createElement("form")
+    const editName = document.createElement("input")
+    editName.value = element.name
+    const editDate = document.createElement("input")
+    editDate.value = element.date
+    const editSubmit = document.createElement("button")
+    editSubmit.addEventListener("click", taskMaker(editName.value, editDate.value))
+    editInput.appendChild(editName)
+    editInput.appendChild(editDate)
+}
 
-const taskDisplay = function() {
+const taskDisplay = function(taskLoader) {
     const taskDisplayDiv = document.createElement("ul")
     taskDisplayDiv.setAttribute("id", "taskDisplay")
-    /*get all tasks for user*/.forEach(element => {
+    taskLoader.forEach(element => {
         const taskItem = $("#taskDisplay").append($("li")).text(`Task: ${element.taskName} Due: ${element.dueDate}`)
         const removeTaskButton = document.createElement("button")
-        removeTaskButton.addEventListener("click", /*remove task api function*/)
+        removeTaskButton.addEventListener("click", APIManager.deleteTask)
         taskItem.appendChild(removeTaskButton)
         const editTaskButton = document.createElement("button")
-        editTaskButton.addEventListener("click", taskEditor)
+        editTaskButton.addEventListener("click", taskEditor(element.id))
+        taskItem.appendChild(editTaskButton)
+        
     });
 }
+taskDisplay(APIManager.....
 
 
 
