@@ -18,6 +18,7 @@ const input = () => {
     print.append(form)
 
     $("#chatSubmit").on("click", function(event) {
+        debugger
         event.preventDefault()
         const message = $("#message").val()
         const clear =  $("#message").val("")
