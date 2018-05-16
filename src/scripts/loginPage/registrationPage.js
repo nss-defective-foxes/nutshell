@@ -6,7 +6,7 @@ const loadRegistration = () => {
             <h3>Registration</h3>
             <input type="text" placeholder="email" id="email--registration">
             <input type="text" placeholder="username" id="username--registration">
-            <input type="text" placeholder="password" id="password--registration">
+            <input type="password" placeholder="password" id="password--registration">
             <button type="submit" id="registration--button">Submit</button>
             <button type="submit" id="cancel--button">Cancel</button>
     `)
@@ -27,11 +27,12 @@ const loadRegistration = () => {
                     "username": $("#username--registration").val(),
                     "email": $("#email--registration").val(),
                     "password": $("#password--registration").val()
-                })
+                }).then(result => sessionStorage.setItem("userID", result.id))
                 $("#username--registration").val("")
                 $("#email--registration").val("")
                 $("#password--registration").val("")
-                $("#registration--modal").remove()
+                $("#registration--modal").empty()
+
             }
         })
     })
