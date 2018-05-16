@@ -3,7 +3,9 @@ const api = require("../api/APIManager")
 const buildChatMessages = require("./MessagesInChat")
 const inputField = require("./InputNewMessages")
 
-buildChatMessages()
-inputField()
+const displayChat = () => {
+    buildChatMessages()
+    inputField()
+}
 
-
+module.exports = displayChat
