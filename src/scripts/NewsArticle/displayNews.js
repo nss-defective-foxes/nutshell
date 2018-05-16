@@ -35,6 +35,7 @@ const displayNews = function (userID) {
                             userNews.push(article)
                         })
                         userNews.sort(sortByDate)
+                        console.log(userNews)
 
                         $("#news").empty()
                         userNews.forEach(article => {
