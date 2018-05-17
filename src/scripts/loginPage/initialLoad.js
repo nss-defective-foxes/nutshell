@@ -2,7 +2,7 @@ const $ = require("jquery")
 const APIManager = require(".././api/APIManager")
 const loadLoginPage = require("./loginPage")
 const loadRegistration = require("./registrationPage")
-const displayChat = require("../Chat/mainChat")
+const displayAllData = require("./displayAllData")
 
 let userList = {}
 
@@ -18,7 +18,7 @@ const initialLoad = () => {
                     $("#password--input").val("")
                     $("#login--page").empty()
                     $("#registration--modal").empty()
-                    displayChat()
+                    displayAllData()
                     }
                 })
             })

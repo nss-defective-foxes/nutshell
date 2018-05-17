@@ -5,6 +5,12 @@
 
 /* news articles added by user's friends */
 .friendNews{}
+
+/* class for all elements of news text input form */
+.newsTextInput {}
+
+
+
 .form {
   position: absolute;
   bottom: 0;
