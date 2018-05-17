@@ -15,7 +15,7 @@ const builderBlock = () => {
             .then(messageName => {
                 const section = document.createElement("section")
                 section.classList = "remove"
-                section.innerHTML += `<a href="http://www.google.com">${messageName}</a>: ${message.message}`
+                section.innerHTML += `<a href="http://www.google.com">${messageName}</a>: ${message.message} <button class="edit"> Edit</button>`
                 console.log(section)
                 frag.append(section)
                 return frag
