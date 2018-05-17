@@ -38,6 +38,11 @@ const APIManager = Object.create(null, {
             return $.ajax(`http://localhost:8088/messages/?userID=${id}`)
         }
     },
+    getSpecificMessage: {
+        value: function (id) {
+            return $.ajax(`http://localhost:8088/messages/${id}`)
+        }
+    },
     putMessage: {
         value: function (id, messageObject) {
            return $.ajax({
@@ -110,6 +115,11 @@ const APIManager = Object.create(null, {
             return $.ajax(`http://localhost:8088/tasks/?userID=${id}`)
         }
     },
+    getSpecificTask: {
+        value: function (id) {
+            return $.ajax(`http://localhost:8088/tasks/${id}`)
+        }
+    },
     putTask: {
         value: function (id, taskObject) {
            return $.ajax({
@@ -171,6 +181,11 @@ const APIManager = Object.create(null, {
     getSubsetEvents: {
         value: function (id) {
             return $.ajax(`http://localhost:8088/events/?userID=${id}`)
+        }
+    },
+    getSpecificEvent: {
+        value: function (id) {
+            return $.ajax(`http://localhost:8088/events/${id}`)
         }
     },
     putEvent: {

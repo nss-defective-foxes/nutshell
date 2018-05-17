@@ -5,3 +5,8 @@
 
 /* news articles added by user's friends */
 .friendNews{}
+.form {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

@@ -1,5 +1,3 @@
-const displayNews = require("./NewsArticle/displayNews")
+const initialLoad = require("./loginPage/initialLoad")
 
-const currentUser = 4
-
-displayNews(currentUser)
+initialLoad()
