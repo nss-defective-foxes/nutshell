@@ -3,10 +3,13 @@ const initialLoad = require("../loginPage/initialLoad")
 
 const logoutButton = () => {
     $("#logout--button").click(() => {
-        sessionStorage.clear()
-        $("#chatDiv").empty()
-        $("#friend--list").empty()
-        initialLoad()
+        const userID = sessionStorage.getItem("userID")
+        if (userID !== null) {
+            sessionStorage.clear()
+            $("#chatDiv").empty()
+            $("#friend--list").empty()
+            initialLoad()
+        }
     })
 }
 
