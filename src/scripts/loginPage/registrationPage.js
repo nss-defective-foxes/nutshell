@@ -30,13 +30,15 @@ const loadRegistration = () => {
                     "username": $("#username--registration").val(),
                     "email": $("#email--registration").val(),
                     "password": $("#password--registration").val()
-                }).then(result => sessionStorage.setItem("userID", result.id))
-                $("#username--registration").val("")
-                $("#email--registration").val("")
-                $("#password--registration").val("")
-                $("#registration--modal").empty()
-                $("#login--page").empty()
-                loadPage()
+                }).then(result => {
+                    sessionStorage.setItem("userID", result.id)
+                    $("#username--registration").val("")
+                    $("#email--registration").val("")
+                    $("#password--registration").val("")
+                    $("#registration--modal").empty()
+                    $("#login--page").empty()
+                    loadPage()
+                })
             }
         })
     })
