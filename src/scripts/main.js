@@ -4,8 +4,6 @@ const loadPage = require("./loginPage/loadPage")
 
 const existingUser = sessionStorage.getItem("userID")
 
-console.log(existingUser)
-
 if (existingUser === null){
     initialLoad()
 } else {
