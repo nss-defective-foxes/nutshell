@@ -1,6 +1,8 @@
 const $ = require("jquery")
 const APIManager = require("../api/APIManager")
 const displayChat = require("../Chat/mainChat")
+const displayFriends = require("../friendList/friendList")
+const loadPage = require("./loadPage")
 
 const loadRegistration = () => {
     $("#registration--modal").append(`
@@ -34,7 +36,7 @@ const loadRegistration = () => {
                 $("#password--registration").val("")
                 $("#registration--modal").empty()
                 $("#login--page").empty()
-                displayChat()
+                loadPage()
             }
         })
     })
