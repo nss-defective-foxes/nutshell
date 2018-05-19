@@ -43,35 +43,19 @@ const displayNews = function (userID) {
                         userNews.sort(sortByDate)
                         $("#newsDisplay").empty()
                         userNews.forEach(article => {
-                            const newsHook = document.getElementById("newsDisplay")
-                            const myNewsSection = componentFactory("section", "", "", "myNews news")
-                            const friendNewsSection = componentFactory("section", "", "", "friendNews news")
-                            const newsHeadline = `<h3 class="newsHeadline"><a href="${article.url}">${article.title}</a></h3>`
-                            const newsSynopsis = `<p>${article.synopsis}</p>`
-                            const deleteButton = componentFactory("button", "X", "", "btn--delete")
-                            if (parseInt(article.userID) === parseInt(userID)) {
-                                myNewsSection.id = `article_${article.id}`
-                                deleteButton.addEventListener("click", function (event) {
-                                    const secID = event.target.parentElement.id
-                                    const index = secID.lastIndexOf("_")
-                                    const articleID = secID.substr(index + 1)
-                                    console.log(articleID)
-                                    // APIManager.deleteNews({
-
-                                    // })
-                                })
-                                apnd(myNewsSection, deleteButton)
-                                apnd(myNewsSection, newsHeadline)
-                                apnd(myNewsSection, newsSynopsis)
-                                apnd(newsHook, myNewsSection)
+                            if (article.userID === userID) {
+                                $("#news").append(`<section class="myNews news" id="${article.id}"><button class="btn--delete" id="delU${article.userID}A${article.id}">X</button>
+                                <h3 class="newsHeadline"><a href="${article.url}">${article.title}</a></h3>
+                                <p>${article.synopsis}</p>
+                                </section>`)
                             } else {
-                                apnd(friendNewsSection, newsHeadline)
-                                apnd(friendNewsSection, newsSynopsis)
-                                apnd(newsHook, friendNewsSection)
+                                $("#news").append(`<section class = "friendNews news">
+                                <h3 class="newsHeadline"><a href="${article.url}">${article.title}</a></h3>
+                                <p>${article.synopsis}</p>
+                                </section>`)
 
-                            }
-
-                        })
+                                }
+                            })
 
                     })
                 })
