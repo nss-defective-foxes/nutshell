@@ -36,7 +36,7 @@ body {
 
 a {
     text-decoration: none;
-    color: $accent-background;
+    color: $friend-news-background;
     &:hover,
     &:active {
         text-decoration: underline;
@@ -161,19 +161,35 @@ article {
 
 /* all news articles */
 
-.news {}
+.news {
+    border: solid 1px $base-text-color;
+    @include rem-fallback(padding, 2);
+    border-radius: 5px;
+    @include rem-fallback(margin, 2);
+}
 
 /* news articles added by current user */
 
-.myNews {}
+.myNews {
+    background-color: $accent-background;
+}
 
 /* news articles added by user's friends */
 
-.friendNews {}
+.friendNews {
+    background-color: $friend-news-background;
+    color: $base-background;
+    font-style: italic;
+    a {
+        color: $accent-background;
+    }
+}
 
 /* class for all elements of news text input form */
 
-.newsTextInput {}
+.newsTextInput {
+
+}
 
 .form {
     position: absolute;

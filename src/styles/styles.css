@@ -223,7 +223,7 @@ html {
   font-size: 62.5%; }
 
 body {
-  background-color: #0D0D0D;
+  background-color: #1B3D4F;
   color: #D6D6D6;
   font-family: Lato, sans-serif;
   font-size: 16px;
@@ -241,7 +241,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #648500; }
+  color: #fff8dc; }
   a:hover, a:active {
     text-decoration: underline;
     color: #D6D6D6; }
@@ -330,7 +330,7 @@ img {
   line-height: 24px;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  background: #0D0D0D;
+  background: #1B3D4F;
   padding: 10px 20px;
   padding: 1rem 2rem;
   border: solid #D6D6D6 1px;
@@ -341,8 +341,8 @@ img {
 .btn:hover {
   background: #D6D6D6;
   text-decoration: none;
-  color: #0D0D0D;
-  border: solid #0D0D0D 1px; }
+  color: #1B3D4F;
+  border: solid #1B3D4F 1px; }
 
 .btn--delete {
   background: red;
@@ -373,8 +373,26 @@ article {
   padding: 1.5rem; }
 
 /* all news articles */
+.news {
+  border: solid 1px #D6D6D6;
+  padding: 20px;
+  padding: 2rem;
+  border-radius: 5px;
+  margin: 20px;
+  margin: 2rem; }
+
 /* news articles added by current user */
+.myNews {
+  background-color: #7D5526; }
+
 /* news articles added by user's friends */
+.friendNews {
+  background-color: #fff8dc;
+  color: #1B3D4F;
+  font-style: italic; }
+  .friendNews a {
+    color: #7D5526; }
+
 /* class for all elements of news text input form */
 .form {
   position: absolute;
@@ -410,6 +428,14 @@ article {
                                                     
 
 */
+#news {
+  display: grid;
+  padding: 10px;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 10px;
+  grid-gap: 1rem; }
+
 /* # Media Queries
 ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
 ▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌

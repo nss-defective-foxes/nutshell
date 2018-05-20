@@ -31,6 +31,9 @@ const addNewsForm = () => {
         .then(function(){
             const displayNews = require("./displayNews")
             displayNews(currentUser)
+            $("#URLInput").val("")
+            $("#TitleInput").val("")
+            $("#SynopsisInput").val("")
         })
     })
 

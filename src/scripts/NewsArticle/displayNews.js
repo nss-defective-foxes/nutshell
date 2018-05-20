@@ -15,9 +15,9 @@ const sortByDate = (a, b) => {
     return 0
 }
 
-const displayNews = function (userID) {
+const displayNews = function (currentUser) {
     //get a user's own news articles
-    APIManager.getSubsetNews(userID)
+    APIManager.getSubsetNews(parseInt(currentUser))
     .then(articles => {
         articles.forEach(article => {
             userNews.push(article)
@@ -25,7 +25,7 @@ const displayNews = function (userID) {
     })
     .then(() => {
         //get the list of the user's friends
-        APIManager.getSubsetFriends(userID)
+        APIManager.getSubsetFriends(parseInt(currentUser))
         .then(friends => {
             friends.forEach(friend => {
                 //get the news articles of the user's friends
@@ -43,13 +43,19 @@ const displayNews = function (userID) {
                         userNews.sort(sortByDate)
                         $("#newsDisplay").empty()
                         userNews.forEach(article => {
-                            if (article.userID === userID) {
-                                $("#news").append(`<section class="myNews news" id="${article.id}"><button class="btn--delete" id="delU${article.userID}A${article.id}">X</button>
+                            if (parseInt(article.userID) === parseInt(currentUser)) {
+                                $("#newsDisplay").append(`<section class="myNews news" id="article_${article.id}"><button class="btn--delete" id="remove_article_${article.id}">X</button>
                                 <h3 class="newsHeadline"><a href="${article.url}">${article.title}</a></h3>
                                 <p>${article.synopsis}</p>
                                 </section>`)
+                                $(`#remove_article_${article.id}`).click(() => {
+                                    APIManager.deleteNews(article.id)
+                                    .then(() => {
+                                        $(`#article_${article.id}`).remove()
+                                    })
+                                })
                             } else {
-                                $("#news").append(`<section class = "friendNews news">
+                                $("#newsDisplay").append(`<section class = "friendNews news">
                                 <h3 class="newsHeadline"><a href="${article.url}">${article.title}</a></h3>
                                 <p>${article.synopsis}</p>
                                 </section>`)

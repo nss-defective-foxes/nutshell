@@ -3,7 +3,7 @@
 I've updated the package.json and Gruntfile in this branch to download and compile Sass for us. Sass makes CSS much easier. A few things first:
 
 1. I included my personal default Sass files. I am not married to anything in these files. Play with fonts, colors, whatever you want. They're just my defaults, not actual suggestions for this project.
-1. I had a few classes in the styles file from master. I pasted those in to the bottom of the _04defaults.scss file so that work hasn't been lost.
+1. There were a few classes in the styles file from master. I pasted those in to the bottom of the _04defaults.scss file so that work hasn't been lost.
 
 ## Sass is awesome.
 
@@ -19,8 +19,7 @@ If you just want to know enough to be dangerous, I wrote down everything you nee
 
 Check the "Styles" directory in "src". You'll see files with names that begin with an "_". Those are called "partials" and they're similar to our JS modules. It's just a way to break up the code so you are looking only at what you need.
 
-
-## **IMPORTANT NOTE**: Make all of your CSS changes inside the partials. _**DO NOT*_ write CSS in the styles.css file. They will be overwritten when the scss compiles.
+## **IMPORTANT NOTE**: Make all of your CSS changes inside the partials. _**DO NOT**_ write CSS in the styles.css file. All code in the styles.css file gets overwritten when the scss compiles.
 
 This is how I've divided my partials:
 
