@@ -38,8 +38,36 @@ const eventDOMBuilder = Object.create({}, {
                 })
         }
     },
+
+    // buildEventArray: {
+    //     value: function () {
+    //         let totalEventsArray = []
+    //         return APIManager.getSubsetEvents(sessionStorage.getItem("userID"))
+    //         .then(usersEventsArray => {
+    //             return totalEventsArray.join(usersEventsArray)
+    //         })
+    //         .then(() =>{
+    //             return APIManager.getSubsetFriends(sessionStorage.getItem("userID"))
+    //             .then(friendTableArray => {
+    //                 let friendIDList = []
+    //                return Promise.all(friendTableArray.forEach(friendListing => {
+    //                     APIManager.getSubsetEvents(friendListing.friendID)
+    //                     .then(friendsEventsArray => {
+    //                         totalEventsArray.join(friendsEventsArray)
+    //                         return totalEventsArray
+    //                     })
+    //                 }))
+    //             })
+    //         })
+    //     }
+    // },
     buildEventList: {
         value: function () {
+            // eventDOMBuilder.buildEventArray().then(results => {
+            //     console.log(results)
+            // })
+
+
             APIManager.getSubsetEvents(sessionStorage.getItem("userID"))
             .then(eventsList => {
                 let recentEvent = new Date(eventsList[0].date)
