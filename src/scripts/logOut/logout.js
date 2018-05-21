@@ -6,7 +6,11 @@ const logoutButton = () => {
         const userID = sessionStorage.getItem("userID")
         if (userID !== null) {
             sessionStorage.clear()
-            $("div").empty()
+            $("#chatDiv").empty()
+            $("#friend--list").empty()
+            $("#events").empty()
+            $("#newsForm").empty()
+            $("#newsDisplay").empty()
             initialLoad()
         }
     })
