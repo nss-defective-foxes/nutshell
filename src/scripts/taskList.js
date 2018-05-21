@@ -13,47 +13,62 @@ const TaskListDisplay = function () {
         APIManager.postTask(newObject)
     }
 
-    //input field for date and name
+    //button to create input field for date and name
+        const addTaskButtonFunction = function () {
+        const addTaskButton = document.createElement("button")
 
-    const taskForm = document.createElement("div")
+        addTaskButton.setAttribute("id", "addTaskButton")
 
-    const dateInput = document.createElement("input")
+        addTaskButton.textContent = "New Task"
 
-    dateInput.setAttribute("type", "date")
+        addTaskButton.addEventListener("click", function () {
 
-    dateInput.setAttribute("placeholder", "Enter Date")
+            addTaskButtonDelete()
 
-    dateInput.setAttribute("id", "dateField")
+            const taskForm = document.createElement("div")
 
-    const nameInput = document.createElement("input")
+            const dateInput = document.createElement("input")
 
-    nameInput.setAttribute("type", "text")
+            dateInput.setAttribute("type", "date")
 
-    nameInput.setAttribute("placeholder", "Enter Name")
+            dateInput.setAttribute("placeholder", "Enter Date")
 
-    nameInput.setAttribute("id", "nameField")
+            dateInput.setAttribute("id", "dateField")
 
-    const submitButton = document.createElement("button")
+            const nameInput = document.createElement("input")
 
-    submitButton.textContent = "Submit"
+            nameInput.setAttribute("type", "text")
 
-    //submit functionality to take name and date and create an object
+            nameInput.setAttribute("placeholder", "Enter Name")
 
-    submitButton.addEventListener("click", function () {
-        let namefield = document.querySelector("#nameField").value
-        let datefield = document.querySelector("#dateField").value
-        taskMaker(namefield, datefield)
-        $("#taskDisplay").empty()
-        taskDisplay(existingUser)
-    })
+            nameInput.setAttribute("id", "nameField")
 
-    taskForm.appendChild(dateInput)
+            const submitButton = document.createElement("button")
 
-    taskForm.appendChild(nameInput)
+            submitButton.textContent = "Submit"
+                //submit functionality to take name and date and create an object
 
-    taskForm.appendChild(submitButton)
+            submitButton.addEventListener("click", function () {
+                let namefield = document.querySelector("#nameField").value
+                let datefield = document.querySelector("#dateField").value
+                taskMaker(namefield, datefield)
+            })
 
-    $("#taskList").append(taskForm)
+            taskForm.appendChild(dateInput)
+
+            taskForm.appendChild(nameInput)
+
+            taskForm.appendChild(submitButton)
+
+            $("#taskButtonDiv").append(taskForm)
+        })
+
+        $("#taskButtonDiv").append(addTaskButton)
+    }
+
+    const addTaskButtonDelete = function () {
+        $("#taskButtonDiv").empty()
+    }
 
     //edit button click event
 
@@ -96,6 +111,10 @@ const TaskListDisplay = function () {
     }
     //creates task cards and adds edit and delete buttons
     const taskDisplay = function (taskLoaderID) {
+        const taskButtonDiv = document.createElement("div")
+        taskButtonDiv.setAttribute("id", "taskButtonDiv")
+        document.getElementById("taskList").appendChild(taskButtonDiv)
+        addTaskButtonFunction()
         const taskDisplayDiv = document.createElement("ul")
         taskDisplayDiv.setAttribute("id", "taskDisplay")
         APIManager.getSubsetTasks(taskLoaderID).then(tasks => {
