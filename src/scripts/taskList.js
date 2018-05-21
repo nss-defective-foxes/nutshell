@@ -2,11 +2,13 @@ const $ = require("jquery")
 
 const APIManager = require("api/APIManager.js")
 
+const existingUser = sessionStorage.getItem("userID")
+
 const taskMaker = function (name, date) {
     let newObject = {
         "taskName": name,
         "dueDate": date,
-        "userID": 1
+        "userID": existingUser
     }
     APIManager.postTask(newObject)
 }
@@ -78,7 +80,7 @@ const taskEditor = function (element) {
 const editDeleteClickEvent = function () {
     APIManager.deleteTask(event.currentTarget.parentElement.parentElement.id).then(()=>{
         $("#taskDisplay").empty()
-        taskDisplay(1)
+        taskDisplay(existingUser)
     })
 }
 
@@ -86,7 +88,7 @@ const editDeleteClickEvent = function () {
 const deleteClickEvent = function () {
     APIManager.deleteTask(event.currentTarget.parentElement.id).then(()=>{
         $("#taskDisplay").empty()
-        taskDisplay(1)
+        taskDisplay(existingUser)
     })
 }
 
@@ -112,4 +114,4 @@ const taskDisplay = function(taskLoaderID) {
     });})
 }
 
-taskDisplay(1)
+taskDisplay(existingUser)
