@@ -17,6 +17,9 @@ module.exports = function (grunt) {
             }
         },
         eslint: {
+            options: {
+                fix: true
+            },
             src: [
                 "./scripts/**/*.js",
                 "!node_modules/**/*.js"
