@@ -25,6 +25,7 @@ const addFriendButton = (user) => {
                     }).then((thisFriend) => {
                         friendCard(potentialNewFriend, thisFriend)
                         $("#username--search").val("")
+
                     })
                 }
             })

@@ -18,11 +18,13 @@ const displayNews = function () {
     let promises = []
     // debugger
     const currentUser = sessionStorage.getItem("userID")
+    userNews = []
     //get a user's own news articles
     APIManager.getSubsetNews(parseInt(currentUser))
     .then(articles => {
         articles.forEach(article => {
             userNews.push(article)
+            console.log(userNews)
         })
     })
     .then(() => {
