@@ -8,7 +8,7 @@ const APIManager = Object.create(null, {
     },
     getSubsetUsers: {
         value: function (id) {
-            return $.ajax(`http://localhost:8088/users/?id=${id}`)
+            return $.ajax(`http://localhost:8088/users?id=${id}`)
         }
     },
     postUser: {

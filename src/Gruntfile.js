@@ -6,13 +6,14 @@ module.exports = function (grunt) {
             scripts: {
                 files: [
                     "./scripts/**/*.js",
-                    "./styles/**/*.css",
+                    "./styles/**/*.scss",
                     "./index.html",
                     "!node_modules/**/*.js"
                 ],
-                tasks: ["eslint", "browserify", "copy"],
+                tasks: ["eslint", "sass", "browserify", "uglify", "copy"],
                 options: {
                     spawn: false,
+                    debounceDelay: 1000
                 },
             }
         },
@@ -38,12 +39,36 @@ module.exports = function (grunt) {
                 }
             },
         },
+        sass: {
+            options: {
+                    sourceMap: true
+                },
+                dist: {
+                    files: {
+                        "./styles/styles.css": "./styles/styles.scss"
+                    }
+                }
+            },
         copy: {
             main: {
               files: [
                 // includes files within path
-                {expand: true, src: ["index.html"], dest: "../dist", filter: "isFile"},
-                {expand: true, src: ["styles/*.css"], dest: "../dist/", filter: "isFile"},
+               {
+                   expand: true,
+                   src: ["index.html"],
+                   dest: "../dist/",
+                   filter: "isFile"
+               }, {
+                   expand: true,
+                   src: ["styles/*.css"],
+                   dest: "../dist/",
+                   filter: "isFile"
+               }, {
+                   expand: true,
+                   src: ["styles/styles.css.map"],
+                   dest: "../dist/",
+                   filter: "isFile"
+               }
               ],
             },
         },
@@ -59,12 +84,14 @@ module.exports = function (grunt) {
             }
         }
     });
-    // Load the plugin that provides the "uglify" task.
-    grunt.loadNpmTasks("grunt-contrib-watch");
+
     grunt.loadNpmTasks("grunt-eslint");
     grunt.loadNpmTasks("grunt-browserify");
-    grunt.loadNpmTasks("grunt-contrib-uglify-es");
+    grunt.loadNpmTasks("grunt-sass")
     grunt.loadNpmTasks("grunt-contrib-copy");
-    // Default task(s).
-    grunt.registerTask("default", ["eslint", "browserify", "copy", "uglify", "watch"]);
+    grunt.loadNpmTasks("grunt-contrib-uglify-es");
+    grunt.loadNpmTasks("grunt-contrib-watch");
+
+    
+    grunt.registerTask("default", ["eslint", "browserify", "sass", "copy", "uglify", "watch"]);
 };
