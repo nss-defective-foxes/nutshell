@@ -110,6 +110,11 @@ const APIManager = Object.create(null, {
             return $.ajax(`http://localhost:8088/tasks/?userID=${id}`)
         }
     },
+    getSingleTask: {
+        value: function (id) {
+            return $.ajax(`http://localhost:8088/tasks/${id}`)
+        }
+    },
     putTask: {
         value: function (id, taskObject) {
            return $.ajax({
@@ -131,7 +136,7 @@ const APIManager = Object.create(null, {
     deleteTask: {
         value: function (id) {
            return $.ajax({
-                url: `http://localhost:8088/events/${id}`,
+                url: `http://localhost:8088/tasks/${id}`,
                 type: "DELETE"
             })
         }
