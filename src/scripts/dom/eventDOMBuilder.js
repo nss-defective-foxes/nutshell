@@ -85,7 +85,7 @@ const eventDOMBuilder = Object.create({}, {
                         <p id="${event.id}location">${event.location}</p>
                         </section>`
                     )
-                    if (event.userID !== sessionStorage.getItem("userID")) {
+                    if (parseInt(event.userID) !== parseInt(sessionStorage.getItem("userID"))) {
                         $(`#${event.id}edit`).remove()
                         $(`.${event.id}`).addClass("friendsEvent")
                     }
@@ -104,7 +104,6 @@ const eventDOMBuilder = Object.create({}, {
     },
     buildEditForm: {
         value: function (e) {
-            debugger
             const eventIDTarget = $(`.${parseInt(e.target.id)}`)
 
             $("#eventEditForm").remove()
