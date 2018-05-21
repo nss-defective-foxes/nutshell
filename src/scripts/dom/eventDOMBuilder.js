@@ -10,7 +10,7 @@ const eventDOMBuilder = Object.create({}, {
     buildEventForm: {
         value: function (e) {
             $("#eventForm").remove()
-            $("#events").append(`<section id="eventForm">
+            $("#events").prepend(`<section id="eventForm">
             <input type="text" placeholder="Event Name" id="eventNameInput">
             <input type="date" id="eventDateInput">
             <input type="text" placeholder="Location" id="eventLocationInput">
@@ -39,37 +39,41 @@ const eventDOMBuilder = Object.create({}, {
         }
     },
 
-    // buildEventArray: {
-    //     value: function () {
-    //         let totalEventsArray = []
-    //         return APIManager.getSubsetEvents(sessionStorage.getItem("userID"))
-    //         .then(usersEventsArray => {
-    //             return totalEventsArray.join(usersEventsArray)
-    //         })
-    //         .then(() =>{
-    //             return APIManager.getSubsetFriends(sessionStorage.getItem("userID"))
-    //             .then(friendTableArray => {
-    //                 let friendIDList = []
-    //                return Promise.all(friendTableArray.forEach(friendListing => {
-    //                     APIManager.getSubsetEvents(friendListing.friendID)
-    //                     .then(friendsEventsArray => {
-    //                         totalEventsArray.join(friendsEventsArray)
-    //                         return totalEventsArray
-    //                     })
-    //                 }))
-    //             })
-    //         })
-    //     }
-    // },
+    buildEventArray: {
+        value: function () {
+            let totalEventsArray = []
+            return APIManager.getSubsetEvents(sessionStorage.getItem("userID"))
+            .then(usersEventsArray => {
+                return usersEventsArray
+            })
+            .then((usersEventsArray) =>{
+                return APIManager.getSubsetFriends(sessionStorage.getItem("userID"))
+                .then(friendTableArray => {
+                    let friendIDList = []
+                    let promises = []
+                   friendTableArray.forEach(friendListings => {
+                        promises.push(APIManager.getSubsetEvents(friendListings.friendID)
+                        .then(friendsEventsArray => {
+                            return friendsEventsArray
+                        }))
+                    })
+                   return Promise.all(promises).then(results => {
+
+                    let newResults = []
+                    results.forEach(set =>{
+                        set.forEach(item => {
+                            totalEventsArray.push(item)
+                        })
+                    })
+                        return totalEventsArray.concat(usersEventsArray)
+                    })
+                })
+            })
+        }
+    },
     buildEventList: {
         value: function () {
-            // eventDOMBuilder.buildEventArray().then(results => {
-            //     console.log(results)
-            // })
-
-
-            APIManager.getSubsetEvents(sessionStorage.getItem("userID"))
-            .then(eventsList => {
+            eventDOMBuilder.buildEventArray().then(eventsList => {
                 let recentEvent = new Date(eventsList[0].date)
                 let mostRecentEventID = eventsList[0].id
                 eventsList.forEach(event => {
@@ -81,6 +85,10 @@ const eventDOMBuilder = Object.create({}, {
                         <p id="${event.id}location">${event.location}</p>
                         </section>`
                     )
+                    if (event.userID !== sessionStorage.getItem("userID")) {
+                        $(`#${event.id}edit`).remove()
+                        $(`.${event.id}`).addClass("friendsEvent")
+                    }
                     let currentEventDate = new Date (event.date)
                     if (currentEventDate < recentEvent) {
                         recentEvent = currentEventDate
@@ -89,6 +97,8 @@ const eventDOMBuilder = Object.create({}, {
                     $(`#${event.id}edit`).click(this.buildEditForm)
                 });
                 $(`.${mostRecentEventID}`).addClass("nextEvent")
+                $("#events").prepend("<input type='button' value='Add New Event' id='addNewEventBtn'>")
+                $("#addNewEventBtn").click(eventDOMBuilder.buildEventForm)
             })
         }
     },
