@@ -8,6 +8,10 @@ const logoutButton = () => {
             sessionStorage.clear()
             $("#chatDiv").empty()
             $("#friend--list").empty()
+            $("#events").empty()
+            $("#newsForm").empty()
+            $("#newsDisplay").empty()
+            $("#taskList").empty()
             initialLoad()
         }
     })

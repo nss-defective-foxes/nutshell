@@ -1,12 +1,25 @@
 const $ = require("jquery")
 const loadFriends = require("../friendList/friendList")
 const displayChat = require("../Chat/mainChat")
-const displayTaskList = require("../taskList")
+const displayNews = require("../NewsArticle/displayNews")
+const addNewsForm = require("../NewsArticle/addNewsForm")
+const eventDOMBuilder = require("../dom/eventDOMBuilder")
+const taskListDisplay = require("../taskList")
+const edit = require("../Chat/editButton")
+const loadTaskList = require("../taskList")
+
+
 
 const loadPage = () => {
     loadFriends()
     displayChat()
-    displayTaskList()
+    addNewsForm()
+    displayNews()
+    eventDOMBuilder.buildEventList()
+    $(document).on("click", ".edit", function(e) {
+        edit(e)
+    })
+    loadTaskList()
 }
 
 module.exports = loadPage
