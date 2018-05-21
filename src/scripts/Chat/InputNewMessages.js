@@ -1,6 +1,5 @@
 const $ = require("jquery")
 const api = require("../api/APIManager")
-const buildChatMessages = require("./MessagesInChat")
 const print = $("#chatDiv")
 
 const input = () => {
@@ -16,9 +15,7 @@ const input = () => {
     form.append(text)
     form.append(input)
     print.append(form)
-
     $("#chatSubmit").on("click", function(event) {
-        debugger
         event.preventDefault()
         const message = $("#message").val()
         const clear =  $("#message").val("")
@@ -26,7 +23,8 @@ const input = () => {
             "userID": sessionStorage.getItem("userID"),
             "message": message})
             .then(function() {
-                $(".remove").remove()
+                const buildChatMessages = require("./MessagesInChat")
+                $(".chatSections").remove()
                 buildChatMessages()
                 clear
             })

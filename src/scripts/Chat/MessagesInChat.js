@@ -2,7 +2,6 @@ const $ = require("jQuery")
 const APIManager = require("../api/APIManager")
 const print = $("#chatDiv")
 const frag = document.createDocumentFragment()
-const inputField = require("./InputNewMessages")
 
 console.log("testing")
 
@@ -11,12 +10,18 @@ const builderBlock = () => {
     .then(data => {
         console.log(data)
         data.forEach(message => {
-            APIManager.getSubsetUsers(parseInt(message.userID)).then(result => result[0].username)
+            APIManager.getSubsetUsers(parseInt(message.userID))
+            .then(result => result[0].username)
             .then(messageName => {
                 const section = document.createElement("section")
-                section.classList = "remove"
-                section.innerHTML += `<a href="http://www.google.com">${messageName}</a>: ${message.message} <button class="edit"> Edit</button>`
-                console.log(section)
+                section.classList = "chatSections"
+                if (parseInt(message.userID) === parseInt(sessionStorage.getItem("userID"))) {
+                    section.id = `${message.id}`
+                    section.innerHTML += `<a href="http://www.google.com">${messageName}</a>: <span id="message--${message.id}">${message.message}</span><button class="edit"> Edit</button>`}
+                else {
+                    section.innerHTML += `<a href="http://www.google.com">${messageName}</a>: <span class="${message.id}">${message.message}</span>`
+                }
+                // console.log(section)
                 frag.append(section)
                 return frag
             })
