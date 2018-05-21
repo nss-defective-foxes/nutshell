@@ -1,9 +1,5 @@
 const initialLoad = require("./loginPage/initialLoad")
 const displayAllData = require("./loginPage/displayAllData")
-
-
-initialLoad()
-
 const logoutButton = require("./logOut/logout")
 const loadPage = require("./loginPage/loadPage")
 

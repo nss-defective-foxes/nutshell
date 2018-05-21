@@ -15,7 +15,9 @@ const sortByDate = (a, b) => {
     return 0
 }
 
-const displayNews = function (currentUser) {
+const displayNews = function () {
+    // debugger
+    const currentUser = sessionStorage.getItem("userID")
     //get a user's own news articles
     APIManager.getSubsetNews(parseInt(currentUser))
     .then(articles => {
