@@ -43,6 +43,8 @@ const TaskListDisplay = function () {
         let namefield = document.querySelector("#nameField").value
         let datefield = document.querySelector("#dateField").value
         taskMaker(namefield, datefield)
+        $("#taskDisplay").empty()
+        taskDisplay(existingUser)
     })
 
     taskForm.appendChild(dateInput)
