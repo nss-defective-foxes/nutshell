@@ -4,8 +4,10 @@ const APIManager = require("../api/APIManager")
 const friendCard = (person, friend) => {
     $("#friend--list").append(`
         <div class="friend--card">
-            <h5>${person.username}</h5>
-            <button id="remove--friend--${friend.id}" type="submit">Remove</button>
+        <section class="friendCard">
+        <button id="remove--friend--${friend.id}" class="btn--delete" type="submit">X</button>
+        <h5>${person.username}</h5>
+        </section>
         </div>
     `)
     $(`#remove--friend--${friend.id}`).click(() => {

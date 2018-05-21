@@ -3,8 +3,6 @@ const $ = require("jquery")
 const componentFactory = require("../CommonModules/componentFactory")
 const apnd = require("../CommonModules/apnd")
 
-let userNews = []
-let promises = []
 
 const sortByDate = (a, b) => {
     if (a.timestamp < b.timestamp) {
@@ -16,6 +14,8 @@ const sortByDate = (a, b) => {
 }
 
 const displayNews = function () {
+    let userNews = []
+    let promises = []
     // debugger
     const currentUser = sessionStorage.getItem("userID")
     //get a user's own news articles

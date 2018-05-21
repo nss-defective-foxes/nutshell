@@ -14,7 +14,8 @@ const builderBlock = () => {
                 section.classList = "chatSections"
                 if (parseInt(message.userID) === parseInt(sessionStorage.getItem("userID"))) {
                     section.id = `${message.id}`
-                    section.innerHTML += `<a href="http://www.google.com">${messageName}</a>: <span id="message--${message.id}">${message.message}</span><button class="edit"> Edit</button>`}
+                    section.innerHTML += `<a href="http://www.google.com">${messageName}</a>: <span id="message--${message.id}">${message.message}</span><button class="btn--edit edit"><i class="far fa-edit"></i></button>`
+                    }
                 else {
                     section.innerHTML += `<a href="http://www.google.com">${messageName}</a>: <span class="${message.id}">${message.message}</span>`
                 }
