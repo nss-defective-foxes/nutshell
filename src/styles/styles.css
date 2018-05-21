@@ -1,0 +1,12 @@
+/* all news articles */
+.news {}
+/* news articles added by current user */
+.myNews {}
+
+/* news articles added by user's friends */
+.friendNews{}
+.form {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
