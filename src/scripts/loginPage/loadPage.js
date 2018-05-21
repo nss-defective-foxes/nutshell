@@ -5,7 +5,7 @@ const displayNews = require("../NewsArticle/displayNews")
 const addNewsForm = require("../NewsArticle/addNewsForm")
 const eventDOMBuilder = require("../dom/eventDOMBuilder")
 const taskListDisplay = require("../taskList")
-const edit = require("../Chat/editButton")
+// const edit = require("../Chat/editButton")
 const taskDisplay = require("../taskList")
 
 
@@ -16,9 +16,9 @@ const loadPage = () => {
     addNewsForm()
     displayNews()
     eventDOMBuilder.buildEventList()
-    $(document).on("click", ".edit", function(e) {
-        edit(e)
-    })
+    // $(document).on("click", ".edit", function(e) {
+    //     edit(e)
+    // })
     taskDisplay()
 }
 
