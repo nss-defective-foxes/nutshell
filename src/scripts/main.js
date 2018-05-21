@@ -1,8 +1,15 @@
 const initialLoad = require("./loginPage/initialLoad")
 const displayAllData = require("./loginPage/displayAllData")
+const taskListDisplay = require("./taskList")
+const $ = require("jquery")
+const edit = require("./Chat//editButton")
 
 
-initialLoad()
+$(document).on("click", ".edit", function(e) {
+    edit(e)
+})
+
+
 
 const logoutButton = require("./logOut/logout")
 const loadPage = require("./loginPage/loadPage")
