@@ -92,43 +92,32 @@ img {
     max-width: 100%;
 }
 
-.card {
-    border: solid 1px $base-text-color;
-    @include rem-fallback(padding, 2);
-    border-radius: 5px;
-    @include rem-fallback(margin, 2);
-    display: flex;
-    flex-direction: column;
-}
 
-.cardTitle {
-    color: $base-text-color;
-    font-family: $title-font;
-    text-decoration: underline;
-}
 
-.test {
-    border: 5px solid $test-color;
-}
-
-.btn {
-    border-radius: 3px;
-    color: $base-text-color;
-    @include font-size($body-font-size);
-    background: $base-background;
-    @include rem-fallback(padding, 1, 2);
-    border: solid $base-text-color 1px;
-    text-decoration: none;
+.centered {
+    margin: 0 auto;
     text-align: center;
-    margin: auto;
 }
 
-.btn:hover {
-    background: $base-text-color;
-    text-decoration: none;
-    color: $base-background;
-    border: solid $base-background 1px;
-}
+// nutshell styles
+    .btn--submit {
+        border-radius: 3px;
+        color: $base-text-color;
+        @include font-size($body-font-size);
+        background: $base-background;
+        @include rem-fallback(padding, 1, 2);
+        border: solid $base-text-color 1px;
+        text-decoration: none;
+        text-align: center;
+        margin: auto;
+    }
+    
+    .btn-submit:hover {
+        background: $base-text-color;
+        text-decoration: none;
+        color: $base-background;
+        border: solid $base-background 1px;
+    }
 
 .btn--delete{
      background: $test-color;
@@ -138,28 +127,22 @@ img {
      float: right;
 }
 
-.centered {
-    margin: 0 auto;
-    text-align: center;
-}
-
-.wrapper {
-    @include rem-fallback(margin, 1.5);
-    @include rem-fallback(padding, 1.5);
-    display: flex;
-    justify-content: center;
-}
-
-.border {
+.nutshellWrap {
     border: 1px solid $base-text-color;
+    @include rem-fallback(padding, 1);
+    @include rem-fallback(margin, 1);
 }
 
-article {
-    @include rem-fallback(margin, 1.5);
+input[type=text], input[type=password] {
+    border: 5px solid $accent-background;
+    // @include box-shadow (inset, 0, 0, 8px, $base-text-color);
     @include rem-fallback(padding, 1.5);
+    @include rem-fallback(margin, 1);
+    background: $text-input-background-color;
 }
 
-/* all news articles */
+
+//news styles
 
 .news {
     border: solid 1px $base-text-color;
@@ -168,13 +151,9 @@ article {
     @include rem-fallback(margin, 2);
 }
 
-/* news articles added by current user */
-
 .myNews {
     background-color: $accent-background;
 }
-
-/* news articles added by user's friends */
 
 .friendNews {
     background-color: $friend-news-background;
@@ -185,24 +164,10 @@ article {
     }
 }
 
-/* class for all elements of news text input form */
+//friend styles
 
-.newsTextInput {
-    border: 5px solid $base-text-color;
-    @include box-shadow (inset, 0, 0, 8px, $base-text-color);
-    @include rem-fallback(padding, 1.5);
-    @include rem-fallback(margin, 0, 0, 10, 0);
-    background: $text-input-background-color;
+.friendCard{
+    border: 1px solid $friend-news-background;
 }
 
-.form {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
 
-.nutshellWrap {
-    border: 1px solid $base-text-color;
-    @include rem-fallback(padding, 1);
-    @include rem-fallback(margin, 1);
-}
