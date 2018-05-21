@@ -6,7 +6,7 @@ const addNewsForm = require("../NewsArticle/addNewsForm")
 const eventDOMBuilder = require("../dom/eventDOMBuilder")
 const taskListDisplay = require("../taskList")
 const edit = require("../Chat/editButton")
-const loadTaskList = require("../taskList")
+const taskDisplay = require("../taskList")
 
 
 
@@ -19,7 +19,7 @@ const loadPage = () => {
     $(document).on("click", ".edit", function(e) {
         edit(e)
     })
-    loadTaskList()
+    taskDisplay()
 }
 
 module.exports = loadPage
