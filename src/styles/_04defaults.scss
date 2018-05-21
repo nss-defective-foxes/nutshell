@@ -94,30 +94,31 @@ img {
 
 
 
-.centered {
-    margin: 0 auto;
-    text-align: center;
-}
 
 // nutshell styles
-    .btn--submit {
-        border-radius: 3px;
-        color: $base-text-color;
-        @include font-size($body-font-size);
-        background: $base-background;
-        @include rem-fallback(padding, 1, 2);
-        border: solid $base-text-color 1px;
-        text-decoration: none;
-        text-align: center;
-        margin: auto;
-    }
-    
-    .btn-submit:hover {
-        background: $base-text-color;
-        text-decoration: none;
-        color: $base-background;
-        border: solid $base-background 1px;
-    }
+
+.centered {
+    margin: 0 auto;
+}
+
+.btn {
+    border-radius: 3px;
+    color: $accent-text-color;
+    @include font-size($body-font-size);
+    background: $accent-background;
+    @include rem-fallback(padding, 1, 2);
+    border: solid $base-text-color 1px;
+    text-decoration: none;
+    text-align: center;
+    margin: auto;
+}
+
+.btn:hover {
+    background: $base-background;
+    text-decoration: none;
+    color: $base-text-color;
+    border: solid $base-text-color 1px;
+}
 
 .btn--delete{
      background: $test-color;
@@ -131,6 +132,10 @@ img {
     border: 1px solid $base-text-color;
     @include rem-fallback(padding, 1);
     @include rem-fallback(margin, 1);
+}
+
+#outerWrap{
+    max-width: 70%;
 }
 
 input[type=text], input[type=password] {

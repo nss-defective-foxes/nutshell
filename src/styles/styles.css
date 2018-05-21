@@ -306,17 +306,16 @@ img {
   max-width: 100%; }
 
 .centered {
-  margin: 0 auto;
-  text-align: center; }
+  margin: 0 auto; }
 
-.btn--submit {
+.btn {
   border-radius: 3px;
   color: #D6D6D6;
   font-size: 16px;
   line-height: 24px;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  background: #1B3D4F;
+  background: #7D5526;
   padding: 10px 20px;
   padding: 1rem 2rem;
   border: solid #D6D6D6 1px;
@@ -324,14 +323,14 @@ img {
   text-align: center;
   margin: auto; }
 
-.btn-submit:hover {
-  background: #D6D6D6;
+.btn:hover {
+  background: #1B3D4F;
   text-decoration: none;
-  color: #1B3D4F;
-  border: solid #1B3D4F 1px; }
+  color: #D6D6D6;
+  border: solid #D6D6D6 1px; }
 
 .btn--delete {
-  background: red;
+  background: #7A252B;
   text-decoration: none;
   color: #D6D6D6;
   border: solid #D6D6D6 1px;
@@ -343,6 +342,9 @@ img {
   padding: 1rem;
   margin: 10px;
   margin: 1rem; }
+
+#outerWrap {
+  max-width: 70%; }
 
 input[type=text], input[type=password] {
   border: 5px solid #7D5526;
@@ -406,7 +408,7 @@ input[type=text], input[type=password] {
                                                     
 
 */
-#news {
+#outerWrap {
   display: grid;
   padding: 10px;
   padding: 1rem;
