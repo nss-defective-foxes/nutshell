@@ -188,11 +188,21 @@ article {
 /* class for all elements of news text input form */
 
 .newsTextInput {
-
+    border: 5px solid $base-text-color;
+    @include box-shadow (inset, 0, 0, 8px, $base-text-color);
+    @include rem-fallback(padding, 1.5);
+    @include rem-fallback(margin, 0, 0, 10, 0);
+    background: $text-input-background-color;
 }
 
 .form {
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+.nutshellWrap {
+    border: 1px solid $base-text-color;
+    @include rem-fallback(padding, 1);
+    @include rem-fallback(margin, 1);
 }
