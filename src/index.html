@@ -1,14 +1,17 @@
-<!doctype html> 
+<!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Nashville Software School</title>
   <link rel="stylesheet" href="./styles/styles.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+  crossorigin="anonymous">
 
 </head>
 
 <body>
-  <button id="logout--button">Logout</button>
+  <button id="logout--button" class="btn--delete">Logout</button>
   <div id="login--page">
   </div>
   <div id="registration--modal">
@@ -18,25 +21,27 @@
 
   <header></header>
 
+  <div id="outerWrap" class="centered">
 
-  
-  <div id="chatDiv"></div>
-  <div id="taskList"></div>
-  <div id="friend--list"></div>
-  <div id="news">
-  <div id="newsForm">
+    <div id="chatDiv" class="nutshellWrap"></div>
+    <div id="taskList" class="nutshellWrap"></div>
+    <div id="friend--list" class="nutshellWrap"></div>
+    <div id="news" class="nutshellWrap">
+      <div id="newsForm">
 
+      </div>
+      <div id="newsDisplay">
+
+      </div>
+    </div>
+
+    <div id="events" class="nutshellWrap">
+
+    </div>
   </div>
-  <div id="newsDisplay">
-    
-  </div>
-</div>
-
-<div id="events">
-  
-</div>
   <footer></footer>
 
   <script src="./bundle.js"></script>
 </body>
+
 </html>

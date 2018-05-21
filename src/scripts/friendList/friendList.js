@@ -7,7 +7,7 @@ const displayFriendList = () => {
     $("#friend--list").append(`
         <h3>Friends</h3>
         <input type="text" placeholder="username" id="username--search">
-        <button type="submit" id="add--friend">Search Friends<buttons>
+        <button type="submit" id="add--friend" class="btn">Search Friends<buttons>
     `)
     const user = sessionStorage.getItem("userID")
     let currentUsername

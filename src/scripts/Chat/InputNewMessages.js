@@ -7,6 +7,7 @@ const input = () => {
     const text = document.createElement("textarea")
     const input = document.createElement("input")
     form.classList = "form"
+    form.id = "chatForm"
     text.id = "message"
     text.setAttribute("rows", "3")
     text.setAttribute("cols", "50")

@@ -10,6 +10,9 @@ const taskDisplay = require("../taskList")
 
 
 
+//remove this line on master
+const displayAllData = require("./displayAllData")
+
 const loadPage = () => {
     loadFriends()
     displayChat()

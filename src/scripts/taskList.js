@@ -35,7 +35,10 @@ nameInput.setAttribute("id", "nameField")
 
 const submitButton = document.createElement("button")
 
+
 submitButton.textContent = "Submit"
+submitButton.classList = "btn"
+
 
 //submit functionality to take name and date and create an object
 

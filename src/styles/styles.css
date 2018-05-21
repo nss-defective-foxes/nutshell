@@ -305,23 +305,8 @@ img {
   height: auto;
   max-width: 100%; }
 
-.card {
-  border: solid 1px #D6D6D6;
-  padding: 20px;
-  padding: 2rem;
-  border-radius: 5px;
-  margin: 20px;
-  margin: 2rem;
-  display: flex;
-  flex-direction: column; }
-
-.cardTitle {
-  color: #D6D6D6;
-  font-family: Lustria;
-  text-decoration: underline; }
-
-.test {
-  border: 5px solid red; }
+.centered {
+  margin: 0 auto; }
 
 .btn {
   border-radius: 3px;
@@ -330,49 +315,65 @@ img {
   line-height: 24px;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  background: #1B3D4F;
+  background: #7D5526;
   padding: 10px 20px;
   padding: 1rem 2rem;
+  margin: 10px;
+  margin: 1rem;
   border: solid #D6D6D6 1px;
   text-decoration: none;
   text-align: center;
   margin: auto; }
 
 .btn:hover {
-  background: #D6D6D6;
+  background: #1B3D4F;
   text-decoration: none;
-  color: #1B3D4F;
-  border: solid #1B3D4F 1px; }
+  color: #D6D6D6;
+  border: solid #D6D6D6 1px; }
 
 .btn--delete {
-  background: red;
+  background: #7A252B;
   text-decoration: none;
   color: #D6D6D6;
   border: solid #D6D6D6 1px;
   float: right; }
 
-.centered {
-  margin: 0 auto;
-  text-align: center; }
+.btn--edit {
+  color: #D6D6D6;
+  background: #1B3D4F;
+  font-size: 16px;
+  line-height: 24px;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  padding: 10px 20px;
+  padding: 1rem 2rem;
+  margin: 10px;
+  margin: 1rem;
+  text-decoration: none;
+  text-align: center;
+  margin: auto; }
 
-.wrapper {
-  margin: 15px;
-  margin: 1.5rem;
+button {
+  border: 0; }
+
+.nutshellWrap {
+  border: 1px solid #D6D6D6;
+  padding: 10px;
+  padding: 1rem;
+  margin: 10px;
+  margin: 1rem; }
+
+#outerWrap {
+  max-width: 70%; }
+
+input[type=text], input[type=password] {
+  border: 5px solid #7D5526;
   padding: 15px;
   padding: 1.5rem;
-  display: flex;
-  justify-content: center; }
+  margin: 10px;
+  margin: 1rem;
+  background: #fff8dc; }
 
-.border {
-  border: 1px solid #D6D6D6; }
-
-article {
-  margin: 15px;
-  margin: 1.5rem;
-  padding: 15px;
-  padding: 1.5rem; }
-
-/* all news articles */
 .news {
   border: solid 1px #D6D6D6;
   padding: 20px;
@@ -381,11 +382,9 @@ article {
   margin: 20px;
   margin: 2rem; }
 
-/* news articles added by current user */
 .myNews {
   background-color: #7D5526; }
 
-/* news articles added by user's friends */
 .friendNews {
   background-color: #fff8dc;
   color: #1B3D4F;
@@ -393,11 +392,27 @@ article {
   .friendNews a {
     color: #7D5526; }
 
-/* class for all elements of news text input form */
-.form {
-  position: absolute;
-  bottom: 0;
-  left: 0; }
+.friendCard {
+  border: 1px solid #fff8dc;
+  padding: 10px;
+  padding: 1rem;
+  margin: 10px;
+  margin: 1rem; }
+
+.nextEvent {
+  font-size: 2em;
+  font-weight: bold; }
+
+.eventCard {
+  border: 1px solid #fff8dc;
+  padding: 10px;
+  padding: 1rem;
+  margin: 10px;
+  margin: 1rem; }
+
+.friendsEvent {
+  background-color: #fff8dc;
+  color: #1B3D4F; }
 
 /*
  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄               ▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
@@ -428,7 +443,7 @@ article {
                                                     
 
 */
-#news {
+#outerWrap {
   display: grid;
   padding: 10px;
   padding: 1rem;
