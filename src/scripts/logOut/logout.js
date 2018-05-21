@@ -11,6 +11,7 @@ const logoutButton = () => {
             $("#events").empty()
             $("#newsForm").empty()
             $("#newsDisplay").empty()
+            $("#taskList").empty()
             initialLoad()
         }
     })
