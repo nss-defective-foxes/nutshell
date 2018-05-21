@@ -78,7 +78,7 @@ const eventDOMBuilder = Object.create({}, {
                 let mostRecentEventID = eventsList[0].id
                 eventsList.forEach(event => {
                     $("#events").append(
-                        `<section class="${event.id}">
+                        `<section class="${event.id} eventCard">
                         <h1 id="${event.id}name">${event.name}</h1>
                         <input type="button" value="Edit" class="editEvent" id="${event.id}edit">
                         <p id="${event.id}date">${event.date}</p>
@@ -87,7 +87,7 @@ const eventDOMBuilder = Object.create({}, {
                     )
                     if (parseInt(event.userID) !== parseInt(sessionStorage.getItem("userID"))) {
                         $(`#${event.id}edit`).remove()
-                        $(`.${event.id}`).addClass("friendsEvent")
+                        $(`#events .${event.id}`).addClass("friendsEvent")
                     }
                     let currentEventDate = new Date (event.date)
                     if (currentEventDate < recentEvent) {
@@ -96,7 +96,7 @@ const eventDOMBuilder = Object.create({}, {
                     }
                     $(`#${event.id}edit`).click(this.buildEditForm)
                 });
-                $(`.${mostRecentEventID}`).addClass("nextEvent")
+                $(`#events .${mostRecentEventID}`).addClass("nextEvent")
                 $("#events").prepend("<input type='button' value='Add New Event' id='addNewEventBtn'>")
                 $("#addNewEventBtn").click(eventDOMBuilder.buildEventForm)
             })
@@ -104,7 +104,7 @@ const eventDOMBuilder = Object.create({}, {
     },
     buildEditForm: {
         value: function (e) {
-            const eventIDTarget = $(`.${parseInt(e.target.id)}`)
+            const eventIDTarget = $(`#events .${parseInt(e.target.id)}`)
 
             $("#eventEditForm").remove()
 

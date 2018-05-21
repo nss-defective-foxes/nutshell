@@ -318,6 +318,8 @@ img {
   background: #7D5526;
   padding: 10px 20px;
   padding: 1rem 2rem;
+  margin: 10px;
+  margin: 1rem;
   border: solid #D6D6D6 1px;
   text-decoration: none;
   text-align: center;
@@ -335,6 +337,24 @@ img {
   color: #D6D6D6;
   border: solid #D6D6D6 1px;
   float: right; }
+
+.btn--edit {
+  color: #D6D6D6;
+  background: #1B3D4F;
+  font-size: 16px;
+  line-height: 24px;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  padding: 10px 20px;
+  padding: 1rem 2rem;
+  margin: 10px;
+  margin: 1rem;
+  text-decoration: none;
+  text-align: center;
+  margin: auto; }
+
+button {
+  border: 0; }
 
 .nutshellWrap {
   border: 1px solid #D6D6D6;
@@ -373,11 +393,26 @@ input[type=text], input[type=password] {
     color: #7D5526; }
 
 .friendCard {
-  border: 1px solid #fff8dc; }
+  border: 1px solid #fff8dc;
+  padding: 10px;
+  padding: 1rem;
+  margin: 10px;
+  margin: 1rem; }
 
 .nextEvent {
   font-size: 2em;
   font-weight: bold; }
+
+.eventCard {
+  border: 1px solid #fff8dc;
+  padding: 10px;
+  padding: 1rem;
+  margin: 10px;
+  margin: 1rem; }
+
+.friendsEvent {
+  background-color: #fff8dc;
+  color: #1B3D4F; }
 
 /*
  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄               ▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 

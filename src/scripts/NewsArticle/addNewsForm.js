@@ -14,7 +14,7 @@ const addNewsForm = () => {
     const urlInput = inputFactory("text","Article URL", "URLInput", "newsTextInput")
     const titleInput = inputFactory("text", "Article Title", "TitleInput", "newsTextInput")
     const synopsisInput = inputFactory("text", "Article Synopsis", "SynopsisInput", "newsTextInput")
-    const saveButtonInput = componentFactory("button", "Save Article", "", "btn--submit")
+    const saveButtonInput = componentFactory("button", "Save Article", "", "btn")
     saveButtonInput.addEventListener("click", function(event){
         const url = $("#URLInput").val()
         const title = $("#TitleInput").val()
