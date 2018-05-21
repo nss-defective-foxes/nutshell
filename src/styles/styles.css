@@ -1,12 +1,454 @@
+@charset "UTF-8";
+/*
+
+Author:
+Project:
+
+comment headings generator: http: //patorjk.com/software/taag/#p=display&f=Electronic&t=Grid
+        
+*/
+/*
+▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
+▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ 
+▐░▌       ▐░▌▐░▌       ▐░▌▐░▌          ▐░▌          
+▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ 
+▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ 
+▐░▌       ▐░▌▐░▌       ▐░▌          ▐░▌▐░▌          
+▐░█▄▄▄▄▄▄▄█░▌▐░▌       ▐░▌ ▄▄▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ 
+▐░░░░░░░░░░▌ ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▀▀▀▀▀▀▀▀▀▀   ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀ 
+
+CSS Reset
+
+http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Float Clearing */
+.author-box:before,
+.clearfix:before,
+.entry:before,
+.entry-content:before,
+.footer-widgets:before,
+.nav-primary:before,
+.nav-secondary:before,
+.pagination:before,
+.site-container:before,
+.site-footer:before,
+.site-header:before,
+.site-inner:before,
+.wrap:before {
+  content: "";
+  display: table; }
+
+.author-box:after,
+.clearfix:after,
+.entry:after,
+.entry-content:after,
+.footer-widgets:after,
+.nav-primary:after,
+.nav-secondary:after,
+.pagination:after,
+.site-container:after,
+.site-footer:after,
+.site-header:after,
+.site-inner:after,
+.wrap:after {
+  clear: both;
+  content: "";
+  display: table; }
+
+/*
+
+Mixins
+
+Mixin tutorial
+https: //scotch.io/tutorials/how-to-use-sass-mixins
+
+Some more useful mixins
+http: //zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
+
+*/
+/*
+Variable usage examples:
+
+body {
+    background-color: $base-background;
+    color: $base-text-color;
+    font-family: $body-font, sans-serif;
+    @include font-size($body-font-size);
+}
+*/
+/*
+
+▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
+▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌       ▐░▌▐░▌      ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ 
+▐░▌       ▐░▌▐░▌          ▐░▌          ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌          ▐░▌     ▐░▌          
+▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░▌       ▐░▌▐░▌          ▐░▌     ▐░█▄▄▄▄▄▄▄▄▄ 
+▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░▌          ▐░▌     ▐░░░░░░░░░░░▌
+▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌       ▐░▌▐░▌          ▐░▌      ▀▀▀▀▀▀▀▀▀█░▌
+▐░▌       ▐░▌▐░▌          ▐░▌          ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌          ▐░▌               ▐░▌
+▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░▌          ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░▌      ▄▄▄▄▄▄▄▄▄█░▌
+▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░▌          ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌     ▐░░░░░░░░░░░▌
+▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀  ▀            ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀       ▀▀▀▀▀▀▀▀▀▀▀ 
+                                                                                                
+
+*/
+html {
+  font-size: 62.5%; }
+
+body {
+  background-color: #1B3D4F;
+  color: #D6D6D6;
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-size: 1.6rem;
+  line-height: 2.4rem; }
+
+* ::-moz selection {
+  background: #D6D6D6;
+  color: #fff; }
+
+* ::selection {
+  background: #D6D6D6;
+  color: #fff; }
+
+a {
+  text-decoration: none;
+  color: #fff8dc; }
+  a:hover, a:active {
+    text-decoration: underline;
+    color: #D6D6D6; }
+
+p {
+  margin: 0px 0px 0px 24px;
+  margin: 0rem 0rem 0rem 2.4rem;
+  padding: 0px;
+  padding: 0rem; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Lustria, serif;
+  font-weight: 500;
+  margin: 0px 0px 16px;
+  margin: 0rem 0rem 1.6rem;
+  padding: 0; }
+
+h1 {
+  font-size: 36px;
+  line-height: 54px;
+  font-size: 3.6rem;
+  line-height: 5.4rem; }
+
+h2 {
+  font-size: 30px;
+  line-height: 45px;
+  font-size: 3rem;
+  line-height: 4.5rem; }
+
+h3 {
+  font-size: 24px;
+  line-height: 36px;
+  font-size: 2.4rem;
+  line-height: 3.6rem; }
+
+h4 {
+  font-size: 20px;
+  line-height: 30px;
+  font-size: 2rem;
+  line-height: 3rem; }
+
+h5 {
+  font-size: 18px;
+  line-height: 27px;
+  font-size: 1.8rem;
+  line-height: 2.7rem; }
+
+h6 {
+  font-size: 16px;
+  line-height: 24px;
+  font-size: 1.6rem;
+  line-height: 2.4rem; }
+
+/* Objects */
+img {
+  height: auto;
+  max-width: 100%; }
+
+.card {
+  border: solid 1px #D6D6D6;
+  padding: 20px;
+  padding: 2rem;
+  border-radius: 5px;
+  margin: 20px;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column; }
+
+.cardTitle {
+  color: #D6D6D6;
+  font-family: Lustria;
+  text-decoration: underline; }
+
+.test {
+  border: 5px solid red; }
+
+.btn {
+  border-radius: 3px;
+  color: #D6D6D6;
+  font-size: 16px;
+  line-height: 24px;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  background: #1B3D4F;
+  padding: 10px 20px;
+  padding: 1rem 2rem;
+  border: solid #D6D6D6 1px;
+  text-decoration: none;
+  text-align: center;
+  margin: auto; }
+
+.btn:hover {
+  background: #D6D6D6;
+  text-decoration: none;
+  color: #1B3D4F;
+  border: solid #1B3D4F 1px; }
+
+.btn--delete {
+  background: red;
+  text-decoration: none;
+  color: #D6D6D6;
+  border: solid #D6D6D6 1px;
+  float: right; }
+
+.centered {
+  margin: 0 auto;
+  text-align: center; }
+
+.wrapper {
+  margin: 15px;
+  margin: 1.5rem;
+  padding: 15px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center; }
+
+.border {
+  border: 1px solid #D6D6D6; }
+
+article {
+  margin: 15px;
+  margin: 1.5rem;
+  padding: 15px;
+  padding: 1.5rem; }
+
 /* all news articles */
-.news {}
+.news {
+  border: solid 1px #D6D6D6;
+  padding: 20px;
+  padding: 2rem;
+  border-radius: 5px;
+  margin: 20px;
+  margin: 2rem; }
+
 /* news articles added by current user */
-.myNews {}
+.myNews {
+  background-color: #7D5526; }
 
 /* news articles added by user's friends */
-.friendNews{}
+.friendNews {
+  background-color: #fff8dc;
+  color: #1B3D4F;
+  font-style: italic; }
+  .friendNews a {
+    color: #7D5526; }
+
+/* class for all elements of news text input form */
 .form {
   position: absolute;
   bottom: 0;
-  left: 0;
-}
+  left: 0; }
+
+/*
+ ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄               ▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
+▐░░▌      ▐░▌▐░░░░░░░░░░░▌▐░▌             ▐░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░▌░▌     ▐░▌▐░█▀▀▀▀▀▀▀█░▌ ▐░▌           ▐░▌ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌
+▐░▌▐░▌    ▐░▌▐░▌       ▐░▌  ▐░▌         ▐░▌  ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌
+▐░▌ ▐░▌   ▐░▌▐░█▄▄▄▄▄▄▄█░▌   ▐░▌       ▐░▌   ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌
+▐░▌  ▐░▌  ▐░▌▐░░░░░░░░░░░▌    ▐░▌     ▐░▌    ▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░▌   ▐░▌ ▐░▌▐░█▀▀▀▀▀▀▀█░▌     ▐░▌   ▐░▌     ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀█░█▀▀ 
+▐░▌    ▐░▌▐░▌▐░▌       ▐░▌      ▐░▌ ▐░▌      ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌     ▐░▌  
+▐░▌     ▐░▐░▌▐░▌       ▐░▌       ▐░▐░▌       ▐░█▄▄▄▄▄▄▄█░▌▐░▌       ▐░▌▐░▌      ▐░▌ 
+▐░▌      ▐░░▌▐░▌       ▐░▌        ▐░▌        ▐░░░░░░░░░░▌ ▐░▌       ▐░▌▐░▌       ▐░▌
+ ▀        ▀▀  ▀         ▀          ▀          ▀▀▀▀▀▀▀▀▀▀   ▀         ▀  ▀         ▀ 
+  */
+/*
+
+▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄  
+▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ 
+▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌
+▐░▌          ▐░▌       ▐░▌     ▐░▌     ▐░▌       ▐░▌
+▐░▌ ▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌     ▐░▌     ▐░▌       ▐░▌
+▐░▌▐░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░▌     ▐░▌       ▐░▌
+▐░▌ ▀▀▀▀▀▀█░▌▐░█▀▀▀▀█░█▀▀      ▐░▌     ▐░▌       ▐░▌
+▐░▌       ▐░▌▐░▌     ▐░▌       ▐░▌     ▐░▌       ▐░▌
+▐░█▄▄▄▄▄▄▄█░▌▐░▌      ▐░▌  ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌
+▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ 
+▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀  
+                                                    
+
+*/
+#news {
+  display: grid;
+  padding: 10px;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 10px;
+  grid-gap: 1rem; }
+
+/* # Media Queries
+▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
+▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░▌░▌   ▐░▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌     ▐░█▀▀▀▀▀▀▀█░▌▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ 
+▐░▌▐░▌ ▐░▌▐░▌▐░▌          ▐░▌       ▐░▌    ▐░▌     ▐░▌       ▐░▌     ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌          ▐░▌       ▐░▌     ▐░▌     ▐░▌          ▐░▌          
+▐░▌ ▐░▐░▌ ▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░▌       ▐░▌    ▐░▌     ▐░█▄▄▄▄▄▄▄█░▌     ▐░▌       ▐░▌▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌     ▐░▌     ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ 
+▐░▌  ▐░▌  ▐░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌    ▐░▌     ▐░░░░░░░░░░░▌     ▐░▌       ▐░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░▌   ▀   ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░▌       ▐░▌    ▐░▌     ▐░█▀▀▀▀▀▀▀█░▌     ▐░█▄▄▄▄▄▄▄█░▌▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀█░█▀▀      ▐░▌     ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀█░▌
+▐░▌       ▐░▌▐░▌          ▐░▌       ▐░▌    ▐░▌     ▐░▌       ▐░▌     ▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░▌          ▐░▌     ▐░▌       ▐░▌     ▐░▌                    ▐░▌
+▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▄▄▄▄█░█▄▄▄▄ ▐░▌       ▐░▌      ▀▀▀▀▀▀█░█▀▀ ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░▌      ▐░▌  ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄█░▌
+▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌             ▐░▌  ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀               ▀    ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀ 
+                                                                                                                                                                
+---------------------------------------------------------------------------------------------------- */
+
+/*# sourceMappingURL=styles.css.map */
